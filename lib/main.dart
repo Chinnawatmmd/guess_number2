@@ -9,13 +9,13 @@ void main(){
     bool wantToplay = true;
     String? playAgain = 'x';
     while(playAgain!='y'&&playAgain!='Y'&&playAgain!='n'&&playAgain!='N') {
-      print('Play agian(ํY/N)?');
+      stdout.write('Play agian(ํY/N)?');
       playAgain = stdin.readLineSync();
       if (playAgain == 'n' || playAgain == 'N') wantToplay = false;
     }
     if(!wantToplay) break;
   }
-  print('\nYou\'ve played ${gameCount.length} games');
+  print('You\'ve played ${gameCount.length} games');
   for (var i = 0; i < gameCount.length; i++) {
     print('🚀 Game #${i+1}: ${gameCount[i]} guesses');
   }
@@ -39,10 +39,10 @@ void play(gameCount){
       //print("Please type number only.");
       continue;
     }
-    if(yourAns<1||yourAns>game.max){
+    /*if(yourAns<1||yourAns>game.max){
       print("Please guess the number between 1 and ${game.max} only.");
       continue;
-    }
+    }*/
     result = game.doGuess(yourAns);
   }
   gameCount.add(result);
